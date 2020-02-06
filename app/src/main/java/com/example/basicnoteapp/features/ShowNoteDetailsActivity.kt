@@ -28,6 +28,11 @@ class ShowNoteDetailsActivity : BaseActivity<NotesViewModel>(),View.OnClickListe
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_show_note_details)
         getId()
+        setClickListeners()
+    }
+
+    fun setClickListeners(){
+        ivBack.setOnClickListener(this)
     }
 
     fun getId(){

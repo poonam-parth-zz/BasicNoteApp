@@ -25,6 +25,18 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/ivBack"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:padding="10dp"
+            app:srcCompat="@drawable/ic_left_arrow"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="15dp" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <TextView
@@ -92,11 +104,12 @@
         android:layout_marginStart="30dp"
         android:layout_marginEnd="30dp"
         android:layout_marginBottom="45dp"
-        android:clickable="true"
+        android:clickable="false"
         android:foreground="?attr/selectableItemBackground"
         app:cardBackgroundColor="@color/colorPrimary"
         app:cardCornerRadius="30dp"
         app:cardElevation="5dp"
+        android:alpha=".3"
         app:layout_constraintBottom_toBottomOf="parent">
 
         <TextView
