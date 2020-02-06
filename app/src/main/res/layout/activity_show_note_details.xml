@@ -46,6 +46,17 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <TextView
+            android:id="@+id/tvDateTime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/clToolbar"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:fontFamily="@font/avenirnext_demibold"
+            android:textColor="@android:color/darker_gray"
+            android:layout_marginEnd="15dp"
+            android:layout_marginTop="15dp" />
+
+        <TextView
             android:id="@+id/tvContentNote"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -53,9 +64,9 @@
             android:layout_marginTop="60dp"
             android:layout_marginEnd="30dp"
             android:fontFamily="@font/avenirnext_medium"
-            android:text="Content ....."
             android:textColor="@color/colorPrimary"
             android:textSize="22dp"
+            android:textAlignment="center"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/clToolbar" />
 

@@ -8,6 +8,7 @@ import androidx.lifecycle.Observer
 import com.example.basicnoteapp.R
 import com.example.basicnoteapp.base.BaseActivity
 import kotlinx.android.synthetic.main.activity_show_note_details.*
+import java.text.SimpleDateFormat
 
 class ShowNoteDetailsActivity : BaseActivity<NotesViewModel>(),View.OnClickListener {
 
@@ -49,6 +50,7 @@ class ShowNoteDetailsActivity : BaseActivity<NotesViewModel>(),View.OnClickListe
               it?.let {
                   tvTitleNote.text=it.title
                   tvContentNote.text=it.content
+                  tvDateTime.text= SimpleDateFormat("dd MMMM yyyy, hh:mm aa").format(it.id.toLong())
               }
 
         })
