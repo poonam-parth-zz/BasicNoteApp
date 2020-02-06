@@ -9,8 +9,10 @@ import com.example.basicnoteapp.R
 import com.example.basicnoteapp.features.data.NoteItem
 
 
-class NotesAdapter(var list: ArrayList<NoteItem>) :
+class NotesAdapter() :
     RecyclerView.Adapter<NotesAdapter.NotesViewHoolder>() {
+
+    var list: ArrayList<NoteItem> = ArrayList()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): NotesViewHoolder {
         return NotesViewHoolder(
@@ -25,6 +27,18 @@ class NotesAdapter(var list: ArrayList<NoteItem>) :
     override fun onBindViewHolder(holder: NotesViewHoolder, position: Int) {
         val item = list[position]
         holder.tvNote.text = item.title
+    }
+
+    fun updateNoteList(noteList : List<NoteItem>){
+        list.clear()
+        for(item in noteList){
+            list.add(NoteItem().apply {
+                id=item.id
+                title=item.title
+                content=item.content
+            })
+        }
+        notifyDataSetChanged()
     }
 
 

@@ -28,4 +28,26 @@ class NoteRepo(){
     }
 
 
+    fun getNotesList() : MutableLiveData<List<NoteItem>>{
+        val itemList = MutableLiveData<List<NoteItem>>()
+        Realm.getDefaultInstance().use{
+            it.noteDao().getNotesList().observeForever {
+                val noteList = ArrayList<NoteItem>()
+                it?.let {
+                    for(i in it){
+                        noteList.add(mapNoteEntityToItem(i))
+                    }
+
+                    itemList.value=noteList
+                }
+
+            }
+        }
+        return itemList
+    }
+
+
+
+
+
 }

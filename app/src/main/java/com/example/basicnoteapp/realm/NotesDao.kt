@@ -2,6 +2,7 @@ package com.example.basicnoteapp.realm
 
 import androidx.lifecycle.MutableLiveData
 import io.realm.Realm
+import io.realm.RealmList
 
 class NotesDao(private val mRealm: Realm){
 
@@ -33,4 +34,13 @@ class NotesDao(private val mRealm: Realm){
         return entity
     }
 
+
+    fun getNotesList() : MutableLiveData<List<NoteEntity>>{
+        val mutableLiveData = MutableLiveData<List<NoteEntity>>()
+        val item = mRealm.where(NoteEntity::class.java).findAllAsync()
+        item?.let {
+            mutableLiveData.value=mRealm.copyFromRealm(it)
+        }
+        return mutableLiveData
+    }
 }
