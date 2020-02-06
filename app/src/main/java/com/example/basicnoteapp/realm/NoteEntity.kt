@@ -5,7 +5,7 @@ import io.realm.annotations.PrimaryKey
 import io.realm.annotations.RealmClass
 
 @RealmClass
-class NoteEntity : RealmObject() {
+open class NoteEntity : RealmObject() {
     @PrimaryKey
     var id: String = ""
     var title: String = ""

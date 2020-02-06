@@ -86,7 +86,7 @@
 
 
     <androidx.cardview.widget.CardView
-        android:id="@+id/cvAddNotes"
+        android:id="@+id/cvSaveNote"
         android:layout_width="match_parent"
         android:layout_height="70dp"
         android:layout_marginStart="30dp"

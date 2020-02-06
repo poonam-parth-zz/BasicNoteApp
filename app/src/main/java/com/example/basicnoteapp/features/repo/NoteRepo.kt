@@ -11,8 +11,8 @@ import javax.inject.Singleton
 @Singleton
 class NoteRepo(){
 
-    fun insertorUpdateNote(noteItem : NoteItem){
-        Realm.getDefaultInstance().use{
+    fun insertorUpdateNote(noteItem : NoteItem) : MutableLiveData<Boolean>{
+      return  Realm.getDefaultInstance().use{
              it.noteDao().addNote(mapNoteItemToEntity(noteItem))
         }
     }

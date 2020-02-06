@@ -8,7 +8,7 @@ import dagger.android.ContributesAndroidInjector
 
 
 @Module
-abstract class ActivityModule{
+abstract class  ActivityModule{
 
     @ContributesAndroidInjector
     internal abstract fun contributePreviewNoteActivity() : NotesPreviewActivity

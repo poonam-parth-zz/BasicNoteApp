@@ -2,6 +2,7 @@ package com.example.basicnoteapp.di.component
 
 import com.example.basicnoteapp.BasicNoteApplication
 import com.example.basicnoteapp.di.module.ActivityModule
+import com.example.basicnoteapp.di.module.AppModule
 import com.example.basicnoteapp.di.module.ContextModule
 import com.example.basicnoteapp.di.module.ViewModelModule
 import dagger.BindsInstance
@@ -17,6 +18,7 @@ import javax.inject.Singleton
         ActivityModule::class,
         ViewModelModule::class,
         ContextModule::class,
+        AppModule::class,
         AndroidSupportInjectionModule::class
     ]
 )
