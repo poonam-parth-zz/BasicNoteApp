@@ -43,7 +43,7 @@
             android:text="Add Note"
             android:textAlignment="center"
             android:textColor="@android:color/white"
-            android:textSize="15sp"
+            android:textSize="18sp"
             android:fontFamily="@font/avenirnext_bold" />
 
     </androidx.cardview.widget.CardView>

@@ -18,7 +18,13 @@ class NotesPreviewActivity : AppCompatActivity(), View.OnClickListener {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_notes_preview)
         setUI()
+        setClickListeners()
 
+    }
+
+    private fun setClickListeners() {
+        cvAddNotes.setOnClickListener(this)
+        fabAddNote.setOnClickListener(this)
     }
 
     private fun setUI() {
@@ -33,7 +39,10 @@ class NotesPreviewActivity : AppCompatActivity(), View.OnClickListener {
     override fun onClick(v: View?) {
         when (v!!.id) {
             cvAddNotes.id -> {
-
+                startActivity(AddNoteActivity.newInstance(this))
+            }
+            fabAddNote.id -> {
+                startActivity(AddNoteActivity.newInstance(this))
             }
         }
     }
@@ -41,55 +50,55 @@ class NotesPreviewActivity : AppCompatActivity(), View.OnClickListener {
     private fun getDemoNoteList(): ArrayList<NoteItem> {
         var demoList = ArrayList<NoteItem>()
 
-        demoList.add(NoteItem().apply {
-            title = "note 1"
-        })
+//        demoList.add(NoteItem().apply {
+//            title = "note 1"
+//        })
 
-        demoList.add(NoteItem().apply {
-            title = "note 2"
-        })
-
-        demoList.add(NoteItem().apply {
-            title = "note 3"
-        })
-
-        demoList.add(NoteItem().apply {
-            title = "note 1"
-        })
-
-        demoList.add(NoteItem().apply {
-            title = "note 2"
-        })
-
-        demoList.add(NoteItem().apply {
-            title = "note 3"
-        })
-
-
-        demoList.add(NoteItem().apply {
-            title = "note 1"
-        })
-
-        demoList.add(NoteItem().apply {
-            title = "note 2"
-        })
-
-        demoList.add(NoteItem().apply {
-            title = "note 3"
-        })
-
-
-        demoList.add(NoteItem().apply {
-            title = "note 1"
-        })
-
-        demoList.add(NoteItem().apply {
-            title = "note 2"
-        })
-
-        demoList.add(NoteItem().apply {
-            title = "note 3"
-        })
+//        demoList.add(NoteItem().apply {
+//            title = "note 2"
+//        })
+//
+//        demoList.add(NoteItem().apply {
+//            title = "note 3"
+//        })
+//
+//        demoList.add(NoteItem().apply {
+//            title = "note 1"
+//        })
+//
+//        demoList.add(NoteItem().apply {
+//            title = "note 2"
+//        })
+//
+//        demoList.add(NoteItem().apply {
+//            title = "note 3"
+//        })
+//
+//
+//        demoList.add(NoteItem().apply {
+//            title = "note 1"
+//        })
+//
+//        demoList.add(NoteItem().apply {
+//            title = "note 2"
+//        })
+//
+//        demoList.add(NoteItem().apply {
+//            title = "note 3"
+//        })
+//
+//
+//        demoList.add(NoteItem().apply {
+//            title = "note 1"
+//        })
+//
+//        demoList.add(NoteItem().apply {
+//            title = "note 2"
+//        })
+//
+//        demoList.add(NoteItem().apply {
+//            title = "note 3"
+//        })
 
 
         return demoList

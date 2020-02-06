@@ -47,10 +47,12 @@
         android:layout_marginStart="30dp"
         android:layout_marginEnd="30dp"
         android:backgroundTint="#d3d3d3"
-        android:hint="Add title"
+        android:hint="Add title..."
         android:lines="1"
-        android:textSize="18sp"
+        android:textSize="20sp"
         android:maxLength="100"
+        android:inputType="textCapWords"
+        android:textColor="@color/colorPrimary"
         app:layout_constraintTop_toBottomOf="@id/tvTitle" />
 
     <TextView
@@ -73,12 +75,12 @@
         android:layout_marginStart="30dp"
         android:layout_marginEnd="30dp"
         android:background="@drawable/bg_content_box"
-        android:inputType="textLongMessage"
-        android:lines="1"
+        android:inputType="textMultiLine|textCapSentences"
         android:gravity="top"
-        android:padding="5dp"
+        android:padding="10dp"
         android:hint="Add note ..."
-        android:textSize="18sp"
+        android:textSize="20sp"
+        android:textColor="@color/colorPrimary"
         android:layout_marginTop="10dp"
         app:layout_constraintTop_toBottomOf="@id/tvContent" />
 

@@ -10,7 +10,7 @@ import dagger.multibindings.IntoMap
 import wellthy.care.di.factory.ViewModelFactory
 
 @Module
-abstract class ViewmodelModule{
+abstract class ViewModelModule{
 
 
     @Binds

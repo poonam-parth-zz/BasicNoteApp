@@ -2,6 +2,8 @@ package com.example.basicnoteapp.di.component
 
 import com.example.basicnoteapp.BasicNoteApplication
 import com.example.basicnoteapp.di.module.ActivityModule
+import com.example.basicnoteapp.di.module.ContextModule
+import com.example.basicnoteapp.di.module.ViewModelModule
 import dagger.BindsInstance
 import dagger.Component
 import dagger.android.AndroidInjector
@@ -13,6 +15,8 @@ import javax.inject.Singleton
 @Component(
     modules = [
         ActivityModule::class,
+        ViewModelModule::class,
+        ContextModule::class,
         AndroidSupportInjectionModule::class
     ]
 )
