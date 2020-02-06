@@ -4,10 +4,12 @@ import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
+import android.widget.EditText
 import androidx.core.widget.addTextChangedListener
 import com.example.basicnoteapp.R
 import com.example.basicnoteapp.base.BaseActivity
 import com.example.basicnoteapp.features.data.NoteItem
+import com.example.basicnoteapp.utils.isFieldEmpty
 import kotlinx.android.synthetic.main.activity_add_note.*
 import java.util.*
 
@@ -47,7 +49,7 @@ class AddNoteActivity : BaseActivity<NotesViewModel>(), View.OnClickListener {
     private fun observeSaveButtonLD() {
         getViewModel().saveBtnActiveLD.observe(this, androidx.lifecycle.Observer {
             it?.let {
-                if (etTitle.text.toString().length > 1 && etContent.text.length > 1) {
+                if (etTitle.isFieldEmpty() && etContent.isFieldEmpty()) {
                     cvSaveNote.isClickable = true
                     cvSaveNote.alpha = 1f
                 } else {

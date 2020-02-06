@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import android.view.animation.AnimationUtils
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.basicnoteapp.R
@@ -70,9 +71,21 @@ class NotesPreviewActivity : BaseActivity<NotesViewModel>(), View.OnClickListene
                 noteList.clear()
                 noteList.addAll(it)
                 notesAdapter.updateNoteList(noteList.sortedWith(compareByDescending { it.id.toLong() }))
+                setRVAnimation()
                 setUI()
             }
         })
+    }
+
+    private fun setRVAnimation(){
+        val controller =
+            AnimationUtils.loadLayoutAnimation(this, R.anim.layout_animation_right_to_left);
+        rvNotes.setLayoutAnimation(controller);
+        rvNotes.adapter?.let {
+            it.notifyDataSetChanged();
+        }
+        rvNotes.scheduleLayoutAnimation();
+
     }
 
     private fun setRecyclerViewNotes() {

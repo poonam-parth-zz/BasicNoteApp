@@ -34,7 +34,7 @@
 
         <TextView
             android:id="@+id/tvTitleNote"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:fontFamily="@font/avenirnext_bold"
             android:text="Note Details"
@@ -42,7 +42,9 @@
             android:textSize="20sp"
             android:layout_marginTop="30dp"
             android:layout_marginStart="30dp"
+            android:layout_marginEnd="30dp"
             app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvDateTime" />
 
         <TextView
