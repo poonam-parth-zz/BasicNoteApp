@@ -9,7 +9,8 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="#F3EAC6"
-        tools:context=".features.ShowNoteDetailsActivity">
+        tools:context=".features.ShowNoteDetailsActivity"
+        android:layoutAnimation="@anim/layout_animation_right_to_left">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/clToolbar"
