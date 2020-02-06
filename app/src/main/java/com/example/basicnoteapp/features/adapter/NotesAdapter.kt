@@ -8,12 +8,14 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.basicnoteapp.R
 import com.example.basicnoteapp.features.data.NoteItem
+import com.example.basicnoteapp.features.listeners.OnNoteClickListener
 
 
 class NotesAdapter() :
     RecyclerView.Adapter<NotesAdapter.NotesViewHoolder>() {
 
     var list: ArrayList<NoteItem> = ArrayList()
+    var onNoteClickListener : OnNoteClickListener? = null
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): NotesViewHoolder {
         return NotesViewHoolder(
@@ -42,8 +44,23 @@ class NotesAdapter() :
         notifyDataSetChanged()
     }
 
+    fun setOnNoteClickListeners(clickListener: OnNoteClickListener){
+           onNoteClickListener=clickListener
+    }
 
-    inner class NotesViewHoolder(view: View) : RecyclerView.ViewHolder(view) {
+
+    inner class NotesViewHoolder(view: View) : RecyclerView.ViewHolder(view),View.OnClickListener {
+
+        init {
+            view.setOnClickListener(this)
+        }
+
+        override fun onClick(v: View?) {
+            onNoteClickListener?.let {
+               it.onNoteClicked(list[adapterPosition].id)
+            }
+        }
+
         var tvNote = view.findViewById<TextView>(R.id.tvNote)
     }
 }

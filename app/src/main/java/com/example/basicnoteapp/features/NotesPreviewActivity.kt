@@ -10,11 +10,13 @@ import com.example.basicnoteapp.R
 import com.example.basicnoteapp.base.BaseActivity
 import com.example.basicnoteapp.features.adapter.NotesAdapter
 import com.example.basicnoteapp.features.data.NoteItem
+import com.example.basicnoteapp.features.listeners.OnNoteClickListener
 import kotlinx.android.synthetic.main.activity_notes_preview.*
 import kotlinx.android.synthetic.main.activity_notes_preview_empty.*
 import kotlinx.android.synthetic.main.activity_notes_preview_list_notes.*
 
-class NotesPreviewActivity : BaseActivity<NotesViewModel>(), View.OnClickListener {
+class NotesPreviewActivity : BaseActivity<NotesViewModel>(), View.OnClickListener,OnNoteClickListener {
+
     override fun provideLayout(): Int = R.layout.activity_notes_preview
 
     override fun provideViewModelClass(): Class<NotesViewModel> = NotesViewModel::class.java
@@ -77,6 +79,12 @@ class NotesPreviewActivity : BaseActivity<NotesViewModel>(), View.OnClickListene
         val linearLayoutManager = LinearLayoutManager(this)
         rvNotes.layoutManager = linearLayoutManager
         rvNotes.adapter = notesAdapter
+        notesAdapter.setOnNoteClickListeners(this)
     }
+
+    override fun onNoteClicked(id: String) {
+        startActivity(ShowNoteDetailsActivity.newInstance(this, id))
+    }
+
 
 }
