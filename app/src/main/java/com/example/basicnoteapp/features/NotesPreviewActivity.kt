@@ -67,7 +67,7 @@ class NotesPreviewActivity : BaseActivity<NotesViewModel>(), View.OnClickListene
             it?.let {
                 noteList.clear()
                 noteList.addAll(it)
-                notesAdapter.updateNoteList(noteList)
+                notesAdapter.updateNoteList(noteList.sortedWith(compareByDescending { it.id.toLong() }))
                 setUI()
             }
         })

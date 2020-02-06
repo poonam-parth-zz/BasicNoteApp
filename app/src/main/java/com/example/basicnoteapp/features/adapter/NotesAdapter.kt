@@ -1,5 +1,6 @@
 package com.example.basicnoteapp.features.adapter
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -33,6 +34,7 @@ class NotesAdapter() :
         list.clear()
         for(item in noteList){
             list.add(NoteItem().apply {
+                Log.d("logggs",item.id+"--"+title+"--"+content)
                 id=item.id
                 title=item.title
                 content=item.content

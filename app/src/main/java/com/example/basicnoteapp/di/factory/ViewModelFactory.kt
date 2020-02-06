@@ -1,4 +1,4 @@
-package wellthy.care.di.factory
+package com.example.basicnoteapp.di.factory
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider

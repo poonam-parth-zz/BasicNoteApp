@@ -3,6 +3,7 @@ package com.example.basicnoteapp.realm
 import androidx.lifecycle.MutableLiveData
 import io.realm.Realm
 import io.realm.RealmList
+import io.realm.Sort
 
 class NotesDao(private val mRealm: Realm){
 
@@ -27,6 +28,7 @@ class NotesDao(private val mRealm: Realm){
         val res = mRealm
             .where(NoteEntity::class.java)
             .equalTo("id",id)
+            .sort("id",Sort.ASCENDING)
             .findFirst()
         res?.let {
             entity.value=mRealm.copyFromRealm(res)
