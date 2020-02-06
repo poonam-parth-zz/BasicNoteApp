@@ -16,6 +16,8 @@ import kotlinx.android.synthetic.main.activity_notes_preview.*
 import kotlinx.android.synthetic.main.activity_notes_preview_empty.*
 import kotlinx.android.synthetic.main.activity_notes_preview_list_notes.*
 
+
+
 class NotesPreviewActivity : BaseActivity<NotesViewModel>(), View.OnClickListener,OnNoteClickListener {
 
     override fun provideLayout(): Int = R.layout.activity_notes_preview
@@ -58,9 +60,11 @@ class NotesPreviewActivity : BaseActivity<NotesViewModel>(), View.OnClickListene
         when (v!!.id) {
             cvAddNotes.id -> {
                 startActivity(AddNoteActivity.newInstance(this))
+                overridePendingTransition(R.anim.fade_in, R.anim.anim_fade_out)
             }
             fabAddNote.id -> {
                 startActivity(AddNoteActivity.newInstance(this))
+                overridePendingTransition(R.anim.fade_in, R.anim.anim_fade_out)
             }
         }
     }
@@ -79,7 +83,7 @@ class NotesPreviewActivity : BaseActivity<NotesViewModel>(), View.OnClickListene
 
     private fun setRVAnimation(){
         val controller =
-            AnimationUtils.loadLayoutAnimation(this, R.anim.layout_animation_right_to_left);
+            AnimationUtils.loadLayoutAnimation(this, R.anim.layout_animation_right_to_left)
         rvNotes.setLayoutAnimation(controller);
         rvNotes.adapter?.let {
             it.notifyDataSetChanged();
@@ -97,7 +101,14 @@ class NotesPreviewActivity : BaseActivity<NotesViewModel>(), View.OnClickListene
 
     override fun onNoteClicked(id: String) {
         startActivity(ShowNoteDetailsActivity.newInstance(this, id))
+        overridePendingTransition(R.anim.fade_in, R.anim.anim_fade_out)
     }
 
+    override fun onPause() {
+        super.onPause()
+        if (isFinishing) {
+            overridePendingTransition(R.anim.fade_in, R.anim.anim_fade_out);
+        }
+    }
 
 }

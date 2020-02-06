@@ -63,4 +63,11 @@ class ShowNoteDetailsActivity : BaseActivity<NotesViewModel>(),View.OnClickListe
            }
        }
     }
+
+    override fun onPause() {
+        super.onPause()
+        if (isFinishing) {
+            overridePendingTransition(R.anim.fade_in, R.anim.anim_fade_out)
+        }
+    }
 }

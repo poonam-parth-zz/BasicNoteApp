@@ -75,6 +75,7 @@ class AddNoteActivity : BaseActivity<NotesViewModel>(), View.OnClickListener {
                     content = etContent.text.toString()
                 }).observe(this, androidx.lifecycle.Observer {
                     startActivity(ShowNoteDetailsActivity.newInstance(this, currTime))
+                    overridePendingTransition(R.anim.fade_in, R.anim.anim_fade_out);
                     finish()
                 })
 
@@ -82,6 +83,13 @@ class AddNoteActivity : BaseActivity<NotesViewModel>(), View.OnClickListener {
             ivBack.id -> {
                 finish()
             }
+        }
+    }
+
+    override fun onPause() {
+        super.onPause()
+        if (isFinishing) {
+            overridePendingTransition(R.anim.fade_in, R.anim.anim_fade_out)
         }
     }
 
