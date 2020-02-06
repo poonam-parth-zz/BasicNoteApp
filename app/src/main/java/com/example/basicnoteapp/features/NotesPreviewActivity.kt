@@ -3,12 +3,13 @@ package com.example.basicnoteapp.features
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
-import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.basicnoteapp.R
 import com.example.basicnoteapp.features.adapter.NotesAdapter
 import com.example.basicnoteapp.features.data.NoteItem
 import kotlinx.android.synthetic.main.activity_notes_preview.*
+import kotlinx.android.synthetic.main.activity_notes_preview_empty.*
+import kotlinx.android.synthetic.main.activity_notes_preview_list_notes.*
 
 class NotesPreviewActivity : AppCompatActivity(), View.OnClickListener {
 
@@ -24,7 +25,7 @@ class NotesPreviewActivity : AppCompatActivity(), View.OnClickListener {
         if (getDemoNoteList().size > 0) {
             setRecyclerViewNotes()
         } else {
-            clEmptyView.visibility = View.VISIBLE
+            incEmptyView.visibility = View.VISIBLE
         }
 
     }
@@ -52,11 +53,50 @@ class NotesPreviewActivity : AppCompatActivity(), View.OnClickListener {
             title = "note 3"
         })
 
+        demoList.add(NoteItem().apply {
+            title = "note 1"
+        })
+
+        demoList.add(NoteItem().apply {
+            title = "note 2"
+        })
+
+        demoList.add(NoteItem().apply {
+            title = "note 3"
+        })
+
+
+        demoList.add(NoteItem().apply {
+            title = "note 1"
+        })
+
+        demoList.add(NoteItem().apply {
+            title = "note 2"
+        })
+
+        demoList.add(NoteItem().apply {
+            title = "note 3"
+        })
+
+
+        demoList.add(NoteItem().apply {
+            title = "note 1"
+        })
+
+        demoList.add(NoteItem().apply {
+            title = "note 2"
+        })
+
+        demoList.add(NoteItem().apply {
+            title = "note 3"
+        })
+
+
         return demoList
     }
 
     private fun setRecyclerViewNotes() {
-        rvNotes.visibility = View.VISIBLE
+        incNotesListView.visibility = View.VISIBLE
         val linearLayoutManager = LinearLayoutManager(this)
         notesAdapter = NotesAdapter(getDemoNoteList())
         rvNotes.layoutManager = linearLayoutManager
